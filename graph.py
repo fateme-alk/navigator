@@ -23,6 +23,12 @@ class Graph:
         self.adj_list[end_p1][end_p2] = e.weight
         self.adj_list[end_p2][end_p1] = e.weight
 
+    
+    def remove_edge(self, end_p1, end_p2):
+        del self.adj_list[end_p1][end_p2]
+        del self.adj_list[end_p2][end_p1]
+        
+
     def vertex_exists(self, vertex):
         if vertex in self.adj_list:
             return True
