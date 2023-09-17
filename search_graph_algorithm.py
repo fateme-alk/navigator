@@ -35,7 +35,7 @@ def dijkstra(g, src, dst):
         heapify(possible_weights)
         min_weight = heappop(possible_weights)
         curr_vertex = find_dict_key(adj_vertex_dict, min_weight)
-    return data[dst]['weight'], data[dst]['pre']
+    return data[dst]['weight'], data[dst]['pre'] + [dst]
             
 
 
