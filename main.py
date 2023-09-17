@@ -25,5 +25,15 @@ def initial_graph_route():
     
     return jsonify(extract_graph_info(graph_instance.g1))
 
+
+@app.route('/shortest_path', methods=['GET'])
+def shortes_path_route():
+    @after_this_request
+    def add_header(response):
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+    return jsonify([[vertex.lat, vertex.long] for vertex in min_path])
+
+
 if __name__ == '__main__':
     app.run()
