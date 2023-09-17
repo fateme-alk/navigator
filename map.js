@@ -1,6 +1,9 @@
 let init_graph_btn = document.getElementById('init_graph_btn');
 init_graph_btn.addEventListener('click', plotInitialGraph);
 
+let shortest_path_btn = document.getElementById('shortest_path_btn');
+shortest_path_btn.addEventListener('click', showShortestPath);
+
 
 function addMarker(coordinate) {
     L.marker(coordinate).addTo(myMap);
@@ -23,5 +26,23 @@ function plotInitialGraph() {
                     addPath(data[key]['coordinate'], data[key]['neighbors'][neighbor_index], 'blue');
                 });
             });
+        })
+}
+
+
+function showShortestPath() {
+    const url = 'http://127.0.0.1:5000/shortest_path'
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let first_vertex_pointer = 0;
+            let second_vertex_pointer = 1;
+            while (second_vertex_pointer < data.length) {
+                const first_vertex = data[first_vertex_pointer];
+                const second_vertex = data[second_vertex_pointer];
+                addPath(first_vertex, second_vertex, 'red');
+                first_vertex_pointer++;
+                second_vertex_pointer++;
+            }
         })
 }
