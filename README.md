@@ -1,4 +1,4 @@
-# navigator
+# Navigator
 Navigator is a custom mapping and navigation app which finds the best route to a specific destination.
 
 ## Installation
@@ -27,10 +27,6 @@ Navigator is a custom mapping and navigation app which finds the best route to a
   3. Run the backend server with Flask
      * Run the following command:
        
-       ```
-       flask --app main run
-       ```
-     * You should see output similar to the below picture
        ```
        flask --app main run
        ```
