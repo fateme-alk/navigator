@@ -15,6 +15,14 @@ function addPath(p1_coordinate, p2_coordinate, color) {
 }
 
 
+function addPopup(coordinate, content) {
+    L.popup()
+        .setLatLng([coordinate[0]+0.0001, coordinate[1]])
+        .setContent(content)
+        .addTo(myMap);
+}
+
+
 function plotInitialGraph() {
     const url = 'http://127.0.0.1:5000/initial_graph'
     fetch(url)
@@ -22,6 +30,7 @@ function plotInitialGraph() {
         .then(data => {
             Object.keys(data).forEach(key => {
                 addMarker(data[key]['coordinate']);
+                addPopup(data[key]['coordinate'], key);
                 Object.keys(data[key]['neighbors']).forEach(neighbor_index => {
                     addPath(data[key]['coordinate'], data[key]['neighbors'][neighbor_index], 'blue');
                 });
