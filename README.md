@@ -1,5 +1,6 @@
 # Navigator
 Navigator is a custom mapping and navigation app which finds the best route to a specific destination.
+![Capture](https://github.com/fateme-alk/navigator/assets/136516189/d578316e-3353-458b-bf12-281ff28741d1)
 
 ## Installation
 1. Clone the repository:
